@@ -1,3 +1,4 @@
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import fs from 'fs';
@@ -7,6 +8,8 @@ dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
+
+app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
   const files = fs.readdirSync("C:/Timelapse").sort((a, b) => {
